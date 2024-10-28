@@ -1,0 +1,48 @@
+# Binary files
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary
+*.test
+
+# Output of `go build`
+/bin/
+/build/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+
+# Go dependency directories
+/vendor/
+
+# Go build files
+*.out
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.old
+
+# Go modules
+/go.sum
+/go.sum.*
+
+# Uncomment if you're using Go Modules (but recommended to include go.mod)
+/go.mod
