@@ -25,7 +25,6 @@
 
 # Environment files
 .env
-.env.*
 
 # Logs
 *.log
@@ -40,9 +39,4 @@ Thumbs.db
 *.bak
 *.old
 
-# Go modules
-/go.sum
-/go.sum.*
 
-# Uncomment if you're using Go Modules (but recommended to include go.mod)
-/go.mod
