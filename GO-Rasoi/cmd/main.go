@@ -17,7 +17,7 @@ func main() {
 	r := gin.Default()
 
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"https://react-go-pi.vercel.app/"}, // Replace with your frontend origin
+		AllowOrigins:     []string{"*"}, // Replace with your frontend origin
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE"},
 		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
 		ExposeHeaders:    []string{"Content-Length"},
