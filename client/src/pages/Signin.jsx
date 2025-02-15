@@ -24,7 +24,7 @@ const Signin = () => {
   const login = async (e) => {
     e.preventDefault();
     try {
-      const response = await toast.promise(axios.post(`${import.meta.env.VITE_BACKEND}/users/login`, {
+      const response = await toast.promise(axios.post(`/users/login`, {
         email: email,
         password: password,
       }), {

@@ -62,7 +62,7 @@ const CommentComp = ({ recipeId }) => {
 
     const fetchComments = async () => {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_BACKEND}/comments/${recipeId}`);
+            const response = await axios.get(` /comments/${recipeId}`);
             const fetchedComments = response.data.comments.map((comment) => ({
                 ...comment,
                 liked: false,
@@ -82,7 +82,7 @@ const CommentComp = ({ recipeId }) => {
     const handleLike = async (commentId) => {
         try {
             const response = await axios.post(
-                `${import.meta.env.VITE_BACKEND}/comments/like-dislike/${commentId}`,
+                ` /comments/like-dislike/${commentId}`,
                 {},
                 { headers: { 'Authorization': token } }
             );
@@ -114,7 +114,7 @@ const CommentComp = ({ recipeId }) => {
     const handleSubmit = async () => {
         try {
             await axios.post(
-                `${import.meta.env.VITE_BACKEND}/comments/${recipeId}`,
+                ` /comments/${recipeId}`,
                 { text: inputValue },
                 { headers: { Authorization: token } }
             );

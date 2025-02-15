@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 	"time"
 
 	"github.com/Bhushan9001/Go-Rasoi/config"
@@ -25,16 +24,15 @@ func main() {
 		MaxAge:           12 * time.Hour,
 	}))
 
-	routes.UserRoutes(r);
-	routes.RecipeRoutes(r);
-	routes.CommentRoutes(r);
-	routes.LikeRoutes(r);
+	routes.UserRoutes(r)
+	routes.RecipeRoutes(r)
+	routes.CommentRoutes(r)
+	routes.LikeRoutes(r)
 
+	r.Static("/assets", "build/assets")
+	r.StaticFile("/", "build/index.html")
 	r.NoRoute(func(c *gin.Context) {
-		c.JSON(http.StatusNotFound, gin.H{
-			"error":   "Route not found",
-			"message": "The requested URL was not found on this server.",
-		})
+		c.File("build/index.html")
 	})
 
 	if err := r.Run(":3000"); err != nil {

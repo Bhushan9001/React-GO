@@ -1,0 +1,45 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_USER: "root"
+      DB_PASSWORD: "root"
+      DB_NAME: "rasoi"
+      DB_HOST: "db"
+      DB_PORT: "5432"
+      JWT_SECRET: "rasoi_secret"
+    networks:
+      - rasoi-network
+
+  db:
+    image: postgres:17
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: rasoi
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U myuser -d mydatabase -h db" ]
+      interval: 10s
+      retries: 5
+      start_period: 20s
+    networks:
+      - rasoi-network
+    
+networks:
+  rasoi-network:
+    driver: bridge
+
+volumes:
+  db_data:
+

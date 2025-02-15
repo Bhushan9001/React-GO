@@ -35,7 +35,7 @@ const Recipes = () => {
       setError(null);
 
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BACKEND}/recipes`);
+        const response = await axios.get(` /recipes`);
         if (response.data?.recipes?.length) {
           setRecipes(response.data.recipes);
         } else {

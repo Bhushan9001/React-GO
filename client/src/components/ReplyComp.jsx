@@ -29,7 +29,7 @@ const ReplyComp = ({commentId,fetchComments,setReply}) => {
         try {
             await toast.promise(
                 axios.post(
-                    `${import.meta.env.VITE_BACKEND}/comments/reply/${commentId}`,
+                    ` /comments/reply/${commentId}`,
                     { text: inputValue },
                     {
                         headers: {

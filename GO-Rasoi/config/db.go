@@ -27,7 +27,7 @@ func ConnectDB() {
 
 	// Construct the DSN (Data Source Name)
 	// dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local", dbUser, dbPassword, dbHost, dbPort, dbName)
-	dsn := fmt.Sprintf("host=%v user=%v password=%v dbname=%v port=%v sslmode=require TimeZone=Asia/Kolkata", dbHost, dbUser, dbPassword, dbName, dbPort)
+	dsn := fmt.Sprintf("host=%v user=%v password=%v dbname=%v port=%v sslmode=disable TimeZone=Asia/Kolkata", dbHost, dbUser, dbPassword, dbName, dbPort)
 
 	// Connect to the database using GORM
 	var err error

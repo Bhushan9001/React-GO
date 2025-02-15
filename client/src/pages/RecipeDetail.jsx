@@ -29,15 +29,15 @@ const RecipeDetail = () => {
   const { id } = useParams();
   
   const title = `${recipe.title} Recipe`;
-  const url = `${import.meta.env.VITE_BACKEND}/recipes/${recipe.id}`;
-
+  const url = `/recipes/${recipe.id}`;
+  
  
 
   const fetchRecipes = async () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND}/recipes/${id}`
+        `/recipes/${id}`
       );
       setRecipe(response.data.recipe);
       console.log(response.data.recipe)
@@ -65,7 +65,7 @@ const RecipeDetail = () => {
     <>
       <ToastContainer transition={Bounce} />
       <Link
-        to={"/recipes"}
+        to={"/all-recipes"}
         className="flex items-center pl-5 pt-7 text-[#37a837] hover:text-[#2a872a] transition-colors duration-200 cursor-pointer"
       >
         <IoChevronBack size={30} />
