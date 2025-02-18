@@ -10,7 +10,6 @@
 
 # Output of `go build`
 /bin/
-/build/
 
 # IDE and editor files
 .vscode/
